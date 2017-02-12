@@ -8,7 +8,7 @@ def main():
 	p = optparse.OptionParser()
 	p.add_option('--site')
 	p.add_option('--url')
-	p.add_option('--depth')
+	p.add_option('--depth', default=1)
 	options, arguments = p.parse_args()
 	
 	retData = ''
@@ -18,7 +18,7 @@ def main():
 		urlToScrap = options.url
 		if toScrap == 'olxpk':
 			import olxpk
-			retData = olxpk.fetchData(urlToScrap)
+			retData = olxpk.fetchData(urlToScrap, options.depth)
 			
 	if (retData):
 		print retData

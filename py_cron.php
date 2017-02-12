@@ -11,23 +11,20 @@
 	*/
 
 	//	Greeting message
-	echo	'Initiating CRON!<br/>';
-	
-	$PyExec		=	'python';
+	$PyExec		=	'python2.7';
 	$CrawlSrc	=	'scrapers/index.py';
 	
 	//	Target website pool
 	$CmdQueue	=	array(
-						"olx.pk" => array(	" --site olx.pk --category computers.accessories --url https://www.olx.com.pk/karachi/computers-accessories/",
-											" --site olx.pk --category games.entertainment --url https://www.olx.com.pk/karachi/games-entertainment/"),
-						"test.1" => array(	" --site test.1 --category cat.unidentified --url url.unidentified")
+						"olx.pk" => array(	" --site olxpk --depth 2 --url https://www.olx.com.pk/karachi/computers-accessories/",
+											" --site olxpk --depth 0 --url https://www.olx.com.pk/karachi/games-entertainment/")
 					);
 	
 	//	Build command(s) for Python
 	foreach($CmdQueue as $Key => $Value) {
 		foreach($Value as $FinalVal) {
 			$NewCmd		=	$PyExec . " " . $CrawlSrc . " " . $FinalVal;
-			echo	$NewCmd . '<br/>';
+			echo	'<br/>' . $NewCmd . '<br/>';
 			$JSonData	=	shell_exec($NewCmd);
 			if ($JSonData) {
 				echo	'<br/>';
