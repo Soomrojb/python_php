@@ -8,9 +8,9 @@ def fetchData(url):
 	for mainDiv in Soup.find("table", attrs={"id": "offers_table"}).findAll("h3"):
 		Title = mainDiv.find("a").find("span").text
 		
-		NewList =	{
-						"Title" : Title,
-					}
+		NewList = {
+		"Title" : Title,
+		}
 		
 		FinalArr.append(NewList)
 
