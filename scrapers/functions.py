@@ -1,10 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import urllib
 
 def getHtml(fetch):
-	data = requests.get(fetch, verify=False)
-	html = data.text
+	#data = requests.get(fetch, verify=False)
+	#html = data.text
+	data = urllib.urlopen(fetch)
+	html = data.read()
 	return html
 
 def getSoup(html):
