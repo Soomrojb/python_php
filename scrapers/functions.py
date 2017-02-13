@@ -1,8 +1,6 @@
+from bs4 import BeautifulSoup
 import requests
 import json
-from bs4 import BeautifulSoup
-import os
-import sys
 
 def getHtml(fetch):
 	data = requests.get(fetch, verify=False)
@@ -10,7 +8,7 @@ def getHtml(fetch):
 	return html
 
 def getSoup(html):
-	soup = BeautifulSoup(html, "html.parser")
+	soup = BeautifulSoup(html, "lxml")
 	return soup
 
 def makeSoup(url):
