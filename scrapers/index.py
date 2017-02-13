@@ -1,5 +1,10 @@
 #
-#	Syntax: python2.7 index.py --site WebsiteONE --url http://urlofwebsiteone.com/sublinks_ifany
+#	Syntax: python2.7 index.py --site WebsiteONE --depth 10 --url http://urlofwebsiteone.com/sublinks_ifany
+#
+#	Syntax:
+#		*	--site		Name of website
+#		*	--depth		Pagination depth (if any)
+#		*	--url		Url of website
 #
 
 def main():
