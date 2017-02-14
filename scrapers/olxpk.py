@@ -15,8 +15,14 @@ def fetchData(url, depth):
 			Category = CatANDLoc.split("\n")[1]
 			Location = CatANDLoc.split("\n")[2]
 			trParent = tdParent.parent
-			Price = trParent.find("td", attrs={"class" : re.compile(r'td-price')}).find("strong").text
-			Thumb = trParent.find("a", attrs={"class" : re.compile(r'thumb')}).find("img").get("src")
+			try:
+				Price = trParent.find("td", attrs={"class" : re.compile(r'td-price')}).find("strong").text
+			except:
+				Price = '-'
+			try:
+				Thumb = trParent.find("a", attrs={"class" : re.compile(r'thumb')}).find("img").get("src")
+			except:
+				Thumb = '-'
 			
 			NewList = {
 			"Title" : Title,
