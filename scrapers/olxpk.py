@@ -16,12 +16,14 @@ def fetchData(url, depth):
 			Location = CatANDLoc.split("\n")[2]
 			trParent = tdParent.parent
 			Price = trParent.find("td", attrs={"class" : re.compile(r'td-price')}).find("strong").text
+			Thumb = trParent.find("a", attrs={"class" : re.compile(r'thumb')}).find("img").get("src")
 			
 			NewList = {
 			"Title" : Title,
 			"Category" : Category.strip(),
 			"Location" : Location,
 			"Price" : Price.strip(),
+			"Thumb" : Thumb,
 			}
 			
 			FinalArr.append(NewList)
