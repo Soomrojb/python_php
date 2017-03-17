@@ -11,7 +11,7 @@ def fetchData(url, depth):
 		for mainDiv in Soup.find("table", attrs={"id": "offers_table"}).findAll("h3"):
 			Title = mainDiv.find("a").find("span").text
 			tdParent = mainDiv.parent
-			CatANDLoc = unidecode(tdParent.find("small", attrs={"class","breadcrumb small"}).text)
+			CatANDLoc = unidecode(tdParent.find("small", attrs={"class":"breadcrumb small"}).text)
 			Category = CatANDLoc.split("\n")[1]
 			Location = CatANDLoc.split("\n")[2]
 			trParent = tdParent.parent
